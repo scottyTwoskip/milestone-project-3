@@ -1,10 +1,14 @@
 import React from "react";
 import MyCalendar from "./MyCalendar";
+import Tracker from "./Tracker";
 
 function Dashboard() {
   return (
     <>
-      <MyCalendar />
+        <section>
+            <Tracker />
+        </section>
+        <MyCalendar />
     </>
   );
 }
