@@ -1,13 +1,11 @@
-import React from 'react';
-
-import Tracker from './Tracker';
-
-function Dashboard () {
+import React from "react";
+import MyCalendar from "./MyCalendar";
+function Dashboard() {
   return (
     <>
-      <Tracker />
+      <MyCalendar />
     </>
   );
-};
+}
 
 export default Dashboard;
