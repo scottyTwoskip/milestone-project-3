@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import Nav from './components/Nav'
-import Tracker from './components/Tracker'
 import Dashboard from './components/Dashboard'
 
 function App() {
+  const [isLoggedIn, setLoggedIn] = useState(false);
+
+  // ! Function to handle login
+  const handleLogin = () => {
+    // Login logic goes here
+    // Make an API call to validate credentials
+
+    // If the login is successful, setLoggedIn will be (true)
+    setLoggedIn(true);
+  };
+
+
   return (
     <>
-      <Nav />
-      <Dashboard />
+      <Nav handleLogin={handleLogin} />
+      {/* Login component goes here */}
+
+      {/* Conditionally renders the Dashboard based on login status */}
+      {isLoggedIn && <Dashboard />}
     </>
   );
 }

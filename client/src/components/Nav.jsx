@@ -1,6 +1,6 @@
 import React from "react";
 
-function Nav() {
+function Nav({ handleLogin }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -44,7 +44,7 @@ function Nav() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#login">
+            <a className="nav-link" href="#login" onClick={handleLogin}>
                 Login
               </a>
             </li>
