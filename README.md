@@ -1,3 +1,6 @@
+notes:
+to run the server the terminal command: npm run debug
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
