@@ -6,6 +6,7 @@ function Nav() {
       <div className="container-fluid">
         {/* Logo and Brand Name */}
         <a className="navbar-brand" href="#">
+          💪
           <img
             src="path_to_logo.jpg"
             alt="Logo"
@@ -13,7 +14,7 @@ function Nav() {
             height="24"
             className="d-inline-block align-text-top"
           />
-          Name of App
+          Gains Tracker
         </a>
 
         {/* Toggler for Mobile View */}
