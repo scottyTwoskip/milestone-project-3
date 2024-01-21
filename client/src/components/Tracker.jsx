@@ -1,37 +1,24 @@
-import React, { useState } from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
+// Tracker.jsx
+import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
-function CalendarComponent() {
-  const [date, setDate] = useState(new Date());
-  const [showModal, setShowModal] = useState(false);
-
-  const onDateClick = (value, event) => {
-    setDate(value);
-    setShowModal(true);
-  };
-
+function Tracker({ show, handleClose, date }) {
   return (
-    <div>
-      <Calendar onClickDay={onDateClick} />
-
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Date Selected</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>You clicked on {date.toDateString()}</p>
-          {/* Here you will integrate your separate component */}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Date Selected</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>You clicked on {date.toDateString()}</p>
+        {/* You can expand this modal with more content related to the date */}
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
 
-export default CalendarComponent;
+export default Tracker;
