@@ -2,8 +2,8 @@ import React from "react";
 
 function Nav({ handleLogin }) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container">
         {/* Logo and Brand Name */}
         <a className="navbar-brand" href="#">
           💪
@@ -44,7 +44,7 @@ function Nav({ handleLogin }) {
               </a>
             </li>
             <li className="nav-item">
-            <a className="nav-link" href="#login" onClick={handleLogin}>
+              <a className="nav-link" href="#login" onClick={handleLogin}>
                 Login
               </a>
             </li>
