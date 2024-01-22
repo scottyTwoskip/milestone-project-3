@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from './components/Nav'
 import Dashboard from './components/Dashboard'
+import Home from './components/Home'
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -17,13 +18,12 @@ function App() {
 
 
   return (
-    <div className='App'>
+    <>
       <Nav handleLogin={handleLogin} />
-      {/* Login component goes here */}
-
-      {/* Conditionally renders the Dashboard based on login status */}
-      {isLoggedIn && <Dashboard />}
-    </div>
+      <div>
+        {isLoggedIn ? <Dashboard /> : <Home />}
+      </div>
+    </>
   );
 }
 
