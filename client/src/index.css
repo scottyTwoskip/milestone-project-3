@@ -1,0 +1,39 @@
+/* Tracker.css */
+.tracker-form {
+  margin-bottom: 20px;
+}
+
+.color-key {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.color-key-item {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.color-box {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.workout-list {
+  margin-top: 20px;
+}
+
+.workout-entry {
+  margin-bottom: 10px;
+}
+.delete-button {
+  margin-left: 10px;
+  color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+}
