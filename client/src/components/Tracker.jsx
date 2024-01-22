@@ -1,4 +1,4 @@
-// NEED TO ADD SETS TO WORKOUT ASAP!!!
+// NEED TO ADD SETS TO WORKOUT ASAP also delete action form table!!!
 import React, { useState } from "react";
 import { Modal, Button, Dropdown } from "react-bootstrap";
 import "../index.css";
