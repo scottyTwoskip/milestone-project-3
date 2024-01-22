@@ -1,4 +1,5 @@
 // NEED TO ADD SETS TO WORKOUT ASAP also delete action form table!!!
+//change drop down to workout type selector buttons and change buttons that arent clicked opcacity
 import React, { useState } from "react";
 import { Modal, Button, Dropdown } from "react-bootstrap";
 import "../index.css";
