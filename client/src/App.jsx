@@ -4,6 +4,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
+require('dotenv').config();
+
+const mongoose = require('mongoose');
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
 import AboutPage from './components/AboutPage';
 import SignUp from './components/SignUp';
 
