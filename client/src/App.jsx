@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Nav from './components/Nav'
-import Dashboard from './components/Dashboard'
-import Home from './components/Home'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Nav from './components/Nav';
+import Dashboard from './components/Dashboard';
+import Home from './components/Home';
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -18,12 +19,14 @@ function App() {
 
 
   return (
-    <>
-      <Nav handleLogin={handleLogin} />
-      <div>
-        {isLoggedIn ? <Dashboard /> : <Home />}
-      </div>
-    </>
+    <Router>
+      <>
+        <Nav handleLogin={handleLogin} />
+        <Routes>
+          <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
+        </Routes>
+      </>
+    </Router>
   );
 }
 
