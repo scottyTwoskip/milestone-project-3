@@ -8,6 +8,7 @@ function Dashboard() {
       <Row>
         {/* Sidebar */}
         <Col md={3}>
+          <h3>SideBar</h3>
           {/* Sidebar content here */}
         </Col>
 
