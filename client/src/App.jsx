@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from './components/Nav';
-import Dashboard from './components/Dashboard';
 import Home from './components/Home';
+import Dashboard from './components/Dashboard';
+import AboutPage from './components/AboutPage';
+import SignUp from './components/SignUp';
 require('dotenv').config();
 
 const mongoose = require('mongoose');
@@ -12,9 +14,6 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
-import AboutPage from './components/AboutPage';
-import SignUp from './components/SignUp';
-
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
