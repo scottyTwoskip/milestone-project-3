@@ -5,8 +5,7 @@ function Nav({ handleLogin }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
-        {/* Logo and Brand Name */}
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           <img
             src="path_to_logo.jpg"
             alt="Logo"
@@ -15,7 +14,7 @@ function Nav({ handleLogin }) {
             className="d-inline-block align-text-top"
           />
           Gains Tracker
-        </a>
+        </Link>
 
         {/* Toggler for Mobile View */}
         <button
@@ -30,7 +29,6 @@ function Nav({ handleLogin }) {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar Links */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
