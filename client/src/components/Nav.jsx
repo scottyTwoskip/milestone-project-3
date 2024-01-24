@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 function Nav({ handleLogin }) {
   return (
@@ -6,7 +7,6 @@ function Nav({ handleLogin }) {
       <div className="container">
         {/* Logo and Brand Name */}
         <a className="navbar-brand" href="#">
-          💪
           <img
             src="path_to_logo.jpg"
             alt="Logo"
@@ -34,19 +34,19 @@ function Nav({ handleLogin }) {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#about">
+              <Link className="nav-link" to="/about">
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#signup">
+              <Link className="nav-link" to="/signup">
                 Sign Up
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#login" onClick={handleLogin}>
+              <Link className="nav-link" to="/login" onClick={handleLogin}>
                 Login
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

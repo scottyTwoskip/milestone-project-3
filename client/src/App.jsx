@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
+import AboutPage from './components/AboutPage';
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -24,6 +25,7 @@ function App() {
         <Nav handleLogin={handleLogin} />
         <Routes>
           <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </>
     </Router>
