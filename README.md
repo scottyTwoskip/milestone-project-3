@@ -1,6 +1,6 @@
 # Gains Tracker - Milestone Project 3
 
-Description of your project goes here.
+Application to track your workouts free of charge! Track reps, sets, and excersize type. Easy to log exercises using a pop up calendar.
 
 ## Developers
 
@@ -9,10 +9,29 @@ Description of your project goes here.
 - scottyTwoskip (Scott Eansor)
 -
 
-## Dependencies
+### Backend Dependencies
 
-- [React](https://reactjs.org/): A JavaScript library for building user interfaces.
-- [React Router DOM](https://reactrouter.com/): Declarative routing for React.js.
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs): Library for hashing passwords.
+- [cors](https://www.npmjs.com/package/cors): Middleware for enabling Cross-Origin Resource Sharing (CORS) in your server.
+- [express](https://www.npmjs.com/package/express): Web application framework for Node.js.
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken): JSON Web Token (JWT) implementation for Node.js.
+- [mongoose](https://www.npmjs.com/package/mongoose): MongoDB object modeling tool designed to work in an asynchronous environment.
+
+### Frontend Dependencies
+
+- [@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom): Jest DOM custom matchers.
+- [@testing-library/react](https://www.npmjs.com/package/@testing-library/react): Simple and complete React DOM testing utilities.
+- [@testing-library/user-event](https://www.npmjs.com/package/@testing-library/user-event): Fire events the same way the user does.
+- [bootstrap](https://www.npmjs.com/package/bootstrap): Front-end framework for building responsive and mobile-first websites.
+- [react](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [react-bootstrap](https://www.npmjs.com/package/react-bootstrap): Bootstrap components as React components.
+- [react-calendar](https://www.npmjs.com/package/react-calendar): A modular toolkit for building calendars in React.
+- [react-dom](https://reactjs.org/docs/react-dom.html): Entry point to the DOM and server renderers for React.
+- [react-router-dom](https://reactrouter.com/): Declarative routing for React.js.
+- [react-scripts](https://www.npmjs.com/package/react-scripts): Scripts and configuration used by Create React App.
+- [web-vitals](https://www.npmjs.com/package/web-vitals): Library for measuring web vitals.
+
+## Bugs and Unfinished Functionality
 
 ## Contributing
 
