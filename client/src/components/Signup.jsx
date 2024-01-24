@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Signup = () => {
-  // Your existing component code
+function SignUp () {
+  const handleSignUp = () => {
+    
+    console.log('Sign up button clicked');
+  };
 
   return (
     <div>
@@ -10,17 +13,17 @@ const Signup = () => {
       <form>
         {/* Your form fields here */}
 
-        <button type="button" onClick={handleSignup}>
+        <button type="button" onClick={handleSignUp}>
           Sign Up
         </button>
 
         {/* Link to navigate to the signup route */}
         <p>
-          Already have an account? <Link to="/signup">Sign in</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </form>
     </div>
   );
 };
 
-export default Signup;
+export default SignUp;

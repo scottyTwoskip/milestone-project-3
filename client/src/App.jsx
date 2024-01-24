@@ -5,6 +5,8 @@ import Nav from './components/Nav';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 import AboutPage from './components/AboutPage';
+import SignUp from './components/SignUp';
+
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -26,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </>
     </Router>
