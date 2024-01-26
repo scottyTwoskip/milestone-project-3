@@ -20,10 +20,13 @@ function App() {
     setLoggedIn(true);
   };
 
+  const pageStyle = {
+    backgroundColor: '#f5f5dc', // Beige background color
+  };
 
   return (
     <Router>
-      <>
+      <div style={pageStyle}>
         <Nav handleLogin={handleLogin} />
         <Routes>
           <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
@@ -31,7 +34,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
            <Route path="/login" element={<Login />} /> 
         </Routes>
-      </>
+      </div>
     </Router>
   );
 }
