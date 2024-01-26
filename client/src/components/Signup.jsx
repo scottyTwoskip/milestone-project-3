@@ -1,12 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import backgroundImage from '../assets/lifting.jpg'; // Import the image
+
 function SignUp() {
   const handleSignUp = () => {
     // Your sign-up logic goes here
     console.log('Sign up button clicked');
   };
 
+  const backgroundStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    minHeight: '100vh', // Optional: Set a minimum height for the background
+  };
   return (
     <div className="container mt-5 text-light">
       <div className="row justify-content-center">
