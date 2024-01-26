@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AboutPage() {
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 bg-dark text-white p-4">
       <div className="row">
         <div className="col-lg-8 mx-auto">
           <h2 className="text-center mb-4">About Us</h2>
