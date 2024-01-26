@@ -13,9 +13,9 @@ function Nav({ handleLogin }) {
             alt="weight icon from icons8.com"
             width="30"
             height="24"
-            className="d-inline-block align-text-top"
+            className="d-inline-block align-text-top me-3"
           />
-          Gains Tracker
+          <span className="align-middle">Gains Tracker</span>
         </Link>
 
         {/* Toggler for Mobile View */}
