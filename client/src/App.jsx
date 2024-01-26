@@ -22,6 +22,7 @@ function App() {
 
   const pageStyle = {
     backgroundColor: '#f5f5dc', // Beige background color
+    paddingBottom: '35px', // Adjust padding to create space at the bottom
   };
 
   return (
