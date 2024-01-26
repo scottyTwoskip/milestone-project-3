@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import AboutPage from './components/AboutPage';
 import SignUp from './components/SignUp';
+import Login from './components/Login';
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -28,7 +29,7 @@ function App() {
           <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/signup" element={<SignUp />} />
-          {/* <Route path="/login" element={<Login />} /> */}
+           <Route path="/login" element={<Login />} /> 
         </Routes>
       </>
     </Router>
