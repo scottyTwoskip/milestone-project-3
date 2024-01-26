@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
+import gainsLogo from '../assets/logo.png';
+
 function Nav({ handleLogin }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
         <Link className="navbar-brand" to="/">
           <img
-            src="path_to_logo.jpg"
-            alt="Logo"
+            src={gainsLogo}
+            alt="weight icon from icons8.com"
             width="30"
             height="24"
             className="d-inline-block align-text-top"
