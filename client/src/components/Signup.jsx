@@ -16,8 +16,16 @@ function SignUp() {
     backgroundRepeat: 'no-repeat',
     minHeight: '100vh', // Optional: Set a minimum height for the background
   };
+
+  const backgroundStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    minHeight: '100vh', // Optional: Set a minimum height for the background
+  };
   return (
-    <div className="container mt-5 text-light">
+    <div className="container mt-5 text-light" style={backgroundStyle}>
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card bg-dark">
