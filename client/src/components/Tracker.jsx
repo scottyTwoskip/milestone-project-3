@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Modal, Button, Dropdown } from "react-bootstrap";
 import "../index.css";
 
+// Tracker component is responsible for rendering a modal window for tracking workouts
 function Tracker({ show, handleClose, date }) {
   const [currentWorkout, setCurrentWorkout] = useState({
     type: "",
@@ -11,6 +12,7 @@ function Tracker({ show, handleClose, date }) {
     weight: "",
     reps: "",
   });
+
   const [workouts, setWorkouts] = useState([]);
 
   const workoutTypeColors = {
