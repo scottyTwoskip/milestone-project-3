@@ -11,7 +11,7 @@ async function signUp(req, res) {
     const createdUser = await userModel.create({ username, password })
     res.send(jwt.sign(createdUser._id, process.env.JWT_SECRET))
 }
-//puesdo code is great practice for understanding
+//this >> puesdo code is great practice for understanding!! >>
 async function logIn(req, res) {
     //get the things given to us on the req.body
     const { username, password } = req.body

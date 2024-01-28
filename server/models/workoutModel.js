@@ -19,10 +19,10 @@ const schema = new Schema({
         type: Number,
         required: true
     },
-    // sets : {
-    //     type: Number,
-    //     required: true
-    // },
+    sets: {
+        type: Number,
+        required: true
+    },
     // links up with the user model and references the _id
     owner: {
         type: Types.ObjectId,
