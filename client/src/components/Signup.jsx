@@ -17,13 +17,7 @@ function SignUp() {
     minHeight: '100vh', // Optional: Set a minimum height for the background
   };
 
-  const backgroundStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    minHeight: '100vh', // Optional: Set a minimum height for the background
-  };
+
   return (
     <div className="container mt-5 text-light" style={backgroundStyle}>
       <div className="row justify-content-center">
