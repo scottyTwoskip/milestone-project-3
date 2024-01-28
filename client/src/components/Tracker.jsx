@@ -1,16 +1,14 @@
-// NEED TO ADD SETS TO WORKOUT ASAP also delete action form table!!!
-//change drop down to workout type selector buttons and change buttons that arent clicked opcacity
 import React, { useState } from "react";
-import { Modal, Button, Dropdown } from "react-bootstrap";
+import { Modal, Button, Row, Col } from "react-bootstrap";
 import "../index.css";
 
-// Tracker component is responsible for rendering a modal window for tracking workouts
 function Tracker({ show, handleClose, date }) {
   const [currentWorkout, setCurrentWorkout] = useState({
     type: "",
     exercise: "",
     weight: "",
     reps: "",
+    sets: "",
   });
 
   const [workouts, setWorkouts] = useState([]);
@@ -22,30 +20,49 @@ function Tracker({ show, handleClose, date }) {
     Misc: "#ffff7f",
   };
 
-  const handleSelect = (eventKey) => {
-    setCurrentWorkout({ ...currentWorkout, type: eventKey });
+  const handleSelectType = (type) => {
+    setCurrentWorkout({ ...currentWorkout, type });
   };
 
   const handleInputChange = (e) => {
     setCurrentWorkout({ ...currentWorkout, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!currentWorkout.type) {
       alert("Please select a workout type.");
       return;
     }
-    setWorkouts([
-      ...workouts,
-      { ...currentWorkout, date: date.toISOString().split("T")[0] },
-    ]);
-    setCurrentWorkout({
-      type: currentWorkout.type,
-      exercise: "",
-      weight: "",
-      reps: "",
-    });
+
+    try {
+      const response = await fetch("http://localhost:3000/workouts", {
+        // Adjust the URL as per your server setup
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...currentWorkout,
+          date: date.toISOString().split("T")[0],
+        }),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const addedWorkout = await response.json();
+
+      // Add the newly added workout to the state
+      setWorkouts([...workouts, addedWorkout]);
+      // Reset the current workout form
+      setCurrentWorkout({
+        type: "",
+        exercise: "",
+        weight: "",
+        reps: "",
+        sets: "",
+      });
+    } catch (error) {
+      alert("Failed to add workout: " + error.message);
+    }
   };
 
   const handleDelete = (index) => {
@@ -62,46 +79,29 @@ function Tracker({ show, handleClose, date }) {
       </Modal.Header>
       <Modal.Body>
         <form onSubmit={handleSubmit} className="tracker-form">
-          <Dropdown onSelect={handleSelect}>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Workout Type
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              {Object.keys(workoutTypeColors).map((type) => (
-                <Dropdown.Item
-                  key={type}
-                  eventKey={type}
-                  style={{ color: workoutTypeColors[type] }}
+          <Row>
+            {Object.keys(workoutTypeColors).map((type) => (
+              <Col key={type} md={3}>
+                <Button
+                  style={{
+                    backgroundColor: workoutTypeColors[type],
+                    opacity: currentWorkout.type === type ? 1 : 0.5,
+                  }}
+                  onClick={() => handleSelectType(type)}
                 >
                   {type}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-
-          <div className="color-key">
-            {Object.keys(workoutTypeColors).map((type) => (
-              <div key={type} className="color-key-item">
-                <span
-                  className="color-box"
-                  style={{ backgroundColor: workoutTypeColors[type] }}
-                ></span>
-                {type}
-              </div>
+                </Button>
+              </Col>
             ))}
-          </div>
+          </Row>
 
+          {/* Input fields for exercise, weight, reps, and sets */}
           <input
             name="exercise"
             type="text"
             placeholder="Exercise"
             value={currentWorkout.exercise}
             onChange={handleInputChange}
-            style={{
-              borderColor: workoutTypeColors[currentWorkout.type],
-              color: workoutTypeColors[currentWorkout.type],
-            }}
           />
           <input
             name="weight"
@@ -109,10 +109,6 @@ function Tracker({ show, handleClose, date }) {
             placeholder="Weight"
             value={currentWorkout.weight}
             onChange={handleInputChange}
-            style={{
-              borderColor: workoutTypeColors[currentWorkout.type],
-              color: workoutTypeColors[currentWorkout.type],
-            }}
           />
           <input
             name="reps"
@@ -120,10 +116,13 @@ function Tracker({ show, handleClose, date }) {
             placeholder="Reps"
             value={currentWorkout.reps}
             onChange={handleInputChange}
-            style={{
-              borderColor: workoutTypeColors[currentWorkout.type],
-              color: workoutTypeColors[currentWorkout.type],
-            }}
+          />
+          <input
+            name="sets"
+            type="number"
+            placeholder="Sets"
+            value={currentWorkout.sets}
+            onChange={handleInputChange}
           />
 
           <Button variant="success" type="submit">
@@ -138,6 +137,7 @@ function Tracker({ show, handleClose, date }) {
                 <th>Exercise</th>
                 <th>Weight</th>
                 <th>Reps</th>
+                <th>Sets</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -148,15 +148,12 @@ function Tracker({ show, handleClose, date }) {
                 )
                 .map((workout, index) => (
                   <tr key={index}>
-                    <td>
-                      <strong
-                        style={{ color: workoutTypeColors[workout.type] }}
-                      >
-                        {workout.exercise}
-                      </strong>
+                    <td style={{ color: workoutTypeColors[workout.type] }}>
+                      {workout.exercise}
                     </td>
                     <td>{workout.weight} lbs</td>
                     <td>{workout.reps}</td>
+                    <td>{workout.sets}</td>
                     <td>
                       <Button
                         variant="danger"
