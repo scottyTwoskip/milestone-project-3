@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 
 import gainsLogo from '../assets/logo.png';
 
-function Nav({ handleLogin }) {
+function Nav({ handleLogin, isLoggedIn }) {
+  const handleLogout = () => {
+    // Your logout logic goes here
+    console.log("Logout button clicked");
+    // Logout API call or any other logic goes here
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
@@ -37,17 +43,29 @@ function Nav({ handleLogin }) {
               <Link className="nav-link" to="/about">
                 About
               </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/signup">
-                Sign Up
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login" onClick={handleLogin}>
-                Login
-              </Link>
-            </li>
+              </li>
+            {isLoggedIn ? (
+              // If user is logged in, show Logout link
+              <li className="nav-item">
+                <Link className="nav-link" to="/" onClick={handleLogout}>
+                  Logout
+                </Link>
+              </li>
+            ) : (
+              // If user is not logged in, show Sign Up and Login links
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/signup">
+                    Sign Up
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login" onClick={handleLogin}>
+                    Login
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
