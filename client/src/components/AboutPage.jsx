@@ -1,5 +1,14 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import backgroundImage from '../assets/weights_on_floor.jpg';
+
+const backgroundStyle = {
+  backgroundImage: `url(${backgroundImage})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  minHeight: '100vh',
+};
 
 function AboutPage() {
   return (
@@ -20,8 +29,16 @@ function AboutPage() {
           </p>
         </div>
       </div>
+      <div className="container mt-5 text-light" style={backgroundStyle}>
+        <img
+          src={backgroundImage}
+          alt="Bumper plate on floor image by Victor Freitas on Unsplash"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0, zIndex: -1 }}
+        />
+      </div>  
     </div>
   );
 }
 
 export default AboutPage;
+
