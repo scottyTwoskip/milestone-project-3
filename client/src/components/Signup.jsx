@@ -11,13 +11,17 @@ function SignUp() {
 
   const handleSignUp = async () => {
     try {
-      const response = await fetch("http://localhost:5001/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, email, password }),
-      });
+      const response = await fetch(
+        // `${process.env.WEB_APP_URL}/api/users/signup`,
+        `http://localhost:5001/api/users/signup`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, email, password }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to sign up");
@@ -45,7 +49,15 @@ function SignUp() {
       <img
         src={backgroundImage}
         alt="Deadlift weights image by Victor Freitas on Unsplash"
-        style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0, zIndex: -1 }}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: -1,
+        }}
       />
       <div className="row justify-content-center">
         <div className="col-md-6">

@@ -27,6 +27,10 @@ const schema = new Schema({
     owner: {
         type: Types.ObjectId,
         ref: "users"
+    },
+    date: {
+        type: Date,
+        required: true
     }
 })
 
