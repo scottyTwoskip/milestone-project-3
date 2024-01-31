@@ -28,12 +28,12 @@ function App() {
   return (
     <Router>
       <div style={pageStyle}>
-        <Nav handleLogin={handleLogin} />
+        <Nav handleLogin={handleLogin} isLoggedIn={isLoggedIn} />        
         <Routes>
           <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/signup" element={<SignUp />} />
-           <Route path="/login" element={<Login />} /> 
+          <Route path="/login" element={<Login />} /> 
         </Routes>
       </div>
     </Router>
