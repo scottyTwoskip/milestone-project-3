@@ -20,7 +20,7 @@ async function logIn(req, res) {
     const foundUser = await userModel.findOne({ username, password });
     if (foundUser) {
         const token = jwt.sign({ id: foundUser._id.toString() }, process.env.JWT_SECRET); // Convert _id to string
-        res.send(token);
+        res.send({token});
         return;
     }
     res.status(400).send('Invalid credentials entered');
