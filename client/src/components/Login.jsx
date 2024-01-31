@@ -40,6 +40,9 @@ function Login() {
                 <button type="button" className="btn btn-success" onClick={handleLogin}>
                   Login
                 </button>
+                <p className="mt-3">
+                  Don't have an account? <Link to="/signup">Sign Up</Link>
+                </p>
               </form>
             </div>
           </div>
