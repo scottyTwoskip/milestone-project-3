@@ -35,24 +35,28 @@ function Tracker({ show, handleClose, date }) {
       return;
     }
 
+    // Create a new workout object that aligns with the schema
+    const newWorkout = {
+      ...currentWorkout,
+      weight: currentWorkout.weight ? Number(currentWorkout.weight) : undefined, // Ensure weight is a number or undefined
+      reps: Number(currentWorkout.reps), // Convert reps to a number
+      sets: Number(currentWorkout.sets), // Convert sets to a number
+      // Add owner ID if necessary. Example: owner: 'some_user_id'
+    };
+
     try {
       const response = await fetch("http://localhost:3000/workouts", {
-        // Adjust the URL as per your server setup
+        // Adjust URL as necessary
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...currentWorkout,
-          date: date.toISOString().split("T")[0],
-        }),
+        body: JSON.stringify(newWorkout),
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       const addedWorkout = await response.json();
 
-      // Add the newly added workout to the state
       setWorkouts([...workouts, addedWorkout]);
-      // Reset the current workout form
       setCurrentWorkout({
         type: "",
         exercise: "",
@@ -64,7 +68,6 @@ function Tracker({ show, handleClose, date }) {
       alert("Failed to add workout: " + error.message);
     }
   };
-
   const handleDelete = (index) => {
     const newWorkouts = workouts.filter(
       (_, workoutIndex) => workoutIndex !== index
