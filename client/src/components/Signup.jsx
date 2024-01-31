@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import backgroundImage from "../assets/lifting.jpg"; // Ensure this path is correct
+
+import backgroundImage from "../assets/lifting.jpg";
 
 function SignUp() {
   const [username, setUsername] = useState("");
@@ -41,6 +42,11 @@ function SignUp() {
 
   return (
     <div className="container mt-5 text-light" style={backgroundStyle}>
+      <img
+        src={backgroundImage}
+        alt="Deadlift weights image by Victor Freitas on Unsplash"
+        style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0, zIndex: -1 }}
+      />
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card bg-dark">
