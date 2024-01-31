@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import backgroundImage from '../assets/tension_cord.jpg'; // Import the image
+import backgroundImage from '../assets/tension_cord.jpg';
 
 function Login() {
   const handleLogin = () => {
