@@ -7,14 +7,14 @@ import Dashboard from './components/Dashboard';
 import AboutPage from './components/AboutPage';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
-
+import LogOut from './components/LogOut';
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   // ! Function to handle login
-  const handleLogin = () => {
-    // Login logic goes here
+  const handleAuthentication = () => {
+    // Login / Logout logic goes here
     // Make an API call to validate credentials
 
     // If the login is successful, setLoggedIn will be (true)
@@ -29,12 +29,13 @@ function App() {
   return (
     <Router>
       <div style={pageStyle}>
-        <Navigation handleLogin={handleLogin} isLoggedIn={isLoggedIn} /> {/* Updated usage */}
+      <Navigation handleAuth={handleAuthentication} isLoggedIn={isLoggedIn} />
         <Routes>
           <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<LogOut />} />
         </Routes>
       </div>
     </Router>

@@ -5,13 +5,14 @@ import Nav from "react-bootstrap/Nav";
 
 import gainsLogo from "../assets/logo.png";
 
-function Navigation({ handleLogin, isLoggedIn }) {
+function Navigation({ handleAuth, isLoggedIn }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Your logout logic goes here
+    // Logout logic goes here
     console.log("Logout button clicked");
     // Logout API call or any other logic goes here
+    handleAuth(false); // Pass the updated value to the parent component
     navigate("/"); // Redirect to home page after logout
   };
 
@@ -39,7 +40,7 @@ function Navigation({ handleLogin, isLoggedIn }) {
             </Nav.Link>
             {isLoggedIn ? (
               // If user is logged in, show Logout link
-              <Nav.Link as={Link} to="/" onClick={handleLogout}>
+              <Nav.Link as={Link} to="/" onClick={() => handleAuth('logout')}>
                 Logout
               </Nav.Link>
             ) : (
@@ -48,7 +49,7 @@ function Navigation({ handleLogin, isLoggedIn }) {
                 <Nav.Link as={Link} to="/signup">
                   Sign Up
                 </Nav.Link>
-                <Nav.Link as={Link} to="/login" onClick={handleLogin}>
+                <Nav.Link as={Link} to="/login" onClick={() => handleAuth('login')}>
                   Login
                 </Nav.Link>
               </>
