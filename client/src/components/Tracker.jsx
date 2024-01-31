@@ -41,24 +41,28 @@ function Tracker({ show, handleClose, date }) {
       return;
     }
 
+    // Create a new workout object that aligns with the schema
+    const newWorkout = {
+      ...currentWorkout,
+      weight: currentWorkout.weight ? Number(currentWorkout.weight) : undefined, // Ensure weight is a number or undefined
+      reps: Number(currentWorkout.reps), // Convert reps to a number
+      sets: Number(currentWorkout.sets), // Convert sets to a number
+      // Add owner ID if necessary. Example: owner: 'some_user_id'
+    };
+
     try {
       const response = await fetch("http://localhost:3000/workouts", {
-        // Adjust the URL as per your server setup
+        // Adjust URL as necessary
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...currentWorkout,
-          date: date.toISOString().split("T")[0],
-        }),
+        body: JSON.stringify(newWorkout),
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       const addedWorkout = await response.json();
 
-      // Add the newly added workout to the state
       setWorkouts([...workouts, addedWorkout]);
-      // Reset the current workout form
       setCurrentWorkout({
         type: "",
         exercise: "",
@@ -71,7 +75,6 @@ function Tracker({ show, handleClose, date }) {
     }
   };
 
-  // handleDelete(index): Deletes a workout from the state based on its index.
   const handleDelete = (index) => {
     const newWorkouts = workouts.filter(
       (_, workoutIndex) => workoutIndex !== index
@@ -87,7 +90,7 @@ function Tracker({ show, handleClose, date }) {
       <Modal.Body>
         <form onSubmit={handleSubmit} className="tracker-form">
           <Row>
-          {/* Buttons for different workout types. Clicking a button updates the currentWorkout state with the selected type. */}
+            {/* Buttons for different workout types. Clicking a button updates the currentWorkout state with the selected type. */}
             {Object.keys(workoutTypeColors).map((type) => (
               <Col key={type} md={3}>
                 <Button
