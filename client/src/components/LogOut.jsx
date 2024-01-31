@@ -2,8 +2,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import backgroundImage from '../assets/tension_cord.jpg';
-
 function LogOut() {
   const navigate = useNavigate();
 
@@ -14,16 +12,8 @@ function LogOut() {
     navigate('/');
   };
 
-  const backgroundStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    minHeight: '100vh',
-  };
-
   return (
-    <div className="container mt-5 text-light" style={backgroundStyle}>
+    <div className="container mt-5 text-light">
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card bg-dark">

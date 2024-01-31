@@ -19,6 +19,11 @@ function Login() {
 
   return (
     <div className="container mt-5 text-light" style={backgroundStyle}>
+      <img
+        src={backgroundImage}
+        alt="Tension cord and weights image by Kelly Sikkema on Unsplash"
+        style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0, zIndex: -1 }}
+      />
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card bg-dark">
