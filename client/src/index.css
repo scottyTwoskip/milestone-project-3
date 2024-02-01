@@ -37,3 +37,13 @@
   border: none;
   cursor: pointer;
 }
+
+/* WorkoutBubbles.jsx */
+.bubble-container {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+  }
+}

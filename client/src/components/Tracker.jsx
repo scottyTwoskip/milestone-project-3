@@ -17,22 +17,27 @@ function Tracker({ show, handleClose, date }) {
     "Upper Body": "#ff7f7f",
     "Lower Body": "#7fbfff",
     Core: "#7fff7f",
-    Misc: "#ffff7f",
+    Misc: "#ffa500",
   };
 
   useEffect(() => {
+    if (!show) return;
+
     const fetchWorkouts = async () => {
-      const token = localStorage.getItem("token"); // Retrieve token from local storage
+      const token = localStorage.getItem("token");
       try {
-        const response = await fetch("http://localhost:3000/workouts", {
+        const response = await fetch(`http://localhost:5001/api/workouts`, {
           headers: {
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log(response);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const fetchedWorkouts = await response.json();
+        console.log(fetchedWorkouts);
         setWorkouts(fetchedWorkouts);
       } catch (error) {
         alert("Failed to load workouts: " + error.message);
@@ -40,7 +45,7 @@ function Tracker({ show, handleClose, date }) {
     };
 
     fetchWorkouts();
-  }, []);
+  }, [date, show]);
 
   const handleSelectType = (type) => {
     setCurrentWorkout({ ...currentWorkout, type });
@@ -53,15 +58,19 @@ function Tracker({ show, handleClose, date }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token"); // Retrieve token from local storage
+
+    // Construct the new workout object
     const newWorkout = {
       ...currentWorkout,
+      date: date.toISOString().split("T")[0], // Include the selected date
       weight: currentWorkout.weight ? Number(currentWorkout.weight) : undefined,
       reps: Number(currentWorkout.reps),
       sets: Number(currentWorkout.sets),
     };
 
     try {
-      const response = await fetch("http://localhost:3000/workouts", {
+      // Send the POST request to the backend
+      const response = await fetch("http://localhost:5001/api/workouts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,12 +78,16 @@ function Tracker({ show, handleClose, date }) {
         },
         body: JSON.stringify(newWorkout),
       });
+
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
       const addedWorkout = await response.json();
 
+      // Update the local state to include the new workout
       setWorkouts([...workouts, addedWorkout]);
+
+      // Reset the current workout form
       setCurrentWorkout({
         type: "",
         exercise: "",
@@ -91,7 +104,7 @@ function Tracker({ show, handleClose, date }) {
     const token = localStorage.getItem("token"); // Retrieve token from local storage
     try {
       const response = await fetch(
-        `http://localhost:3000/workouts/${workoutId}`,
+        `http://localhost:5001/workouts/${workoutId}`,
         {
           method: "DELETE",
           headers: {
@@ -175,9 +188,14 @@ function Tracker({ show, handleClose, date }) {
             </thead>
             <tbody>
               {workouts
-                .filter(
-                  (workout) => workout.date === date.toISOString().split("T")[0]
-                )
+                .filter((workout) => {
+                  //the split with the "T" is to disregaurd the timezone, the toIsoString() is a method that is built in to convert the date object into a string compare it.ISO is the global format for date
+                  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format
+                  return (
+                    workout.date.split("T")[0] ===
+                    date.toISOString().split("T")[0]
+                  );
+                })
                 .map((workout, index) => (
                   <tr key={index}>
                     <td style={{ color: workoutTypeColors[workout.type] }}>
