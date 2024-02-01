@@ -19,6 +19,7 @@ function App() {
 
     // If the login is successful, setLoggedIn will be (true)
     setLoggedIn(true);
+    console.log("is logged in", isLoggedIn)
   };
 
   const pageStyle = {
