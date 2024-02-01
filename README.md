@@ -7,7 +7,6 @@ Application to track your workouts free of charge! Track reps, sets, and excersi
 - DrakeAHoffman (Drake Hoffman)
 - J-Diaz007 (Jonathan Diaz)
 - scottyTwoskip (Scott Eansor)
--
 
 ### Backend Dependencies
 
