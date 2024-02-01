@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const authenticateToken = require('./middleware/authenticate')
 
 // const userRoutes = require('./routes/users'); // Import user routes
 // const workoutRoutes = require('./routes/workoutRoutes');
@@ -20,19 +21,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// JWT authentication middleware
-const authenticateToken = (req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-    if (!token) return res.sendStatus(401);
-
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        if (err) return res.sendStatus(403);
-        req.user = user;
-        next();
-    });
-};
-app.use('/api/workouts', authenticateToken)
 // Use the centralized routes
 app.use('/api', appRoutes);
 

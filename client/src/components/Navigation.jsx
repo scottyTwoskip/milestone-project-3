@@ -40,7 +40,7 @@ function Navigation({ handleAuth, isLoggedIn }) {
             </Nav.Link>
             {isLoggedIn ? (
               // If user is logged in, show Logout link
-              <Nav.Link as={Link} to="/" onClick={() => handleAuth('logout')}>
+              <Nav.Link as={Link} to="/">
                 Logout
               </Nav.Link>
             ) : (
@@ -49,7 +49,7 @@ function Navigation({ handleAuth, isLoggedIn }) {
                 <Nav.Link as={Link} to="/signup">
                   Sign Up
                 </Nav.Link>
-                <Nav.Link as={Link} to="/login" onClick={() => handleAuth('login')}>
+                <Nav.Link as={Link} to="/login">
                   Login
                 </Nav.Link>
               </>
