@@ -33,32 +33,32 @@ function Navigation({ handleAuth, isLoggedIn }) {
                 {/* Toggler for Mobile View */}
                 <Navbar.Toggle aria-controls="navbarNav" />
 
-                <Navbar.Collapse id="navbarNav">
-                    <Nav className="ms-auto">
-                        <Nav.Link as={Link} to="/about">
-                            About
-                        </Nav.Link>
-                        {isLoggedIn ? (
-                            // If user is logged in, show Logout link
-                            <Nav.Link as={Link} to="/" onClick={() => handleAuth("logout")}>
-                                Logout
-                            </Nav.Link>
-                        ) : (
-                            // If user is not logged in, show Sign Up and Login links
-                            <>
-                                <Nav.Link as={Link} to="/signup">
-                                    Sign Up
-                                </Nav.Link>
-                                <Nav.Link as={Link} to="/login" onClick={() => handleAuth("login")}>
-                                    Login
-                                </Nav.Link>
-                            </>
-                        )}
-                    </Nav>
-                </Navbar.Collapse>
-            </div>
-        </Navbar>
-    );
+        <Navbar.Collapse id="navbarNav">
+          <Nav className="ms-auto">
+            <Nav.Link as={Link} to="/about">
+              About
+            </Nav.Link>
+            {isLoggedIn ? (
+              // If user is logged in, show Logout link
+              <Nav.Link as={Link} to="/">
+                Logout
+              </Nav.Link>
+            ) : (
+              // If user is not logged in, show Sign Up and Login links
+              <>
+                <Nav.Link as={Link} to="/signup">
+                  Sign Up
+                </Nav.Link>
+                <Nav.Link as={Link} to="/login">
+                  Login
+                </Nav.Link>
+              </>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </div>
+    </Navbar>
+  );
 }
 
 export default Navigation;

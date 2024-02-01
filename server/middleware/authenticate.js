@@ -1,14 +1,23 @@
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
-// const authenticate = (req, res, next) => {
-//     try {
-//         const token = req.headers.authorization.split(' ')[1]; // Bearer <token>
-//         const decoded = jwt.verify(token, 'your_secret_key');
-//         req.user = { _id: decoded.userId };
-//         next();
-//     } catch (error) {
-//         res.status(401).json({ message: 'Authentication failed' });
-//     }
-// };
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if (!token) return next()
+    //verify is decrypting here
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+        if (err) return next()
+        req.user = user;
+        next();//next is call the next guy in que, (have to use because its a callback)
+    });
+};
 
-// // Use this middleware in your workout routes
+const requireUser = (req, res, next) => {
+    if (!req.user) {
+        res.sendStatus(401)
+        return
+    }
+    next()
+}
+
+module.exports = { authenticateToken, requireUser }

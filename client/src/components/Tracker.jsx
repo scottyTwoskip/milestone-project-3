@@ -28,7 +28,6 @@ function Tracker({ show, handleClose, date }) {
       try {
         const response = await fetch(`http://localhost:5001/api/workouts`, {
           headers: {
-            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         });

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import backgroundImage from "../assets/tension_cord.jpg"; // Import the image
 
-function Login() {
+function Login({ onAuth }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -29,7 +29,8 @@ function Login() {
 
       const data = await response.json();
       // Store the token securely, e.g., in localStorage
-      localStorage.setItem("token", data.token);
+      //   localStorage.setItem("token", data.token);
+      onAuth(data.token);
 
       navigate("/"); // Navigate to the home page after successful login
     } catch (error) {
