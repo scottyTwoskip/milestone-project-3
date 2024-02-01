@@ -17,7 +17,7 @@ function Tracker({ show, handleClose, date }) {
     "Upper Body": "#ff7f7f",
     "Lower Body": "#7fbfff",
     Core: "#7fff7f",
-    Misc: "#ffff7f",
+    Misc: "#ffa500",
   };
 
   useEffect(() => {
