@@ -1,5 +1,13 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+// Import images
+import redBlackImage from "../assets/red_black.jpg";
+import medballImage from "../assets/medball.jpg";
+import ropesImage from "../assets/ropes.jpg";
+import barbellImage from "../assets/barbell.jpg";
+
+
+
 
 function Home() {
   return (
@@ -7,18 +15,18 @@ function Home() {
       {/* Section 1 */}
       <div className="my-4 text-center">
         <img
-          src="../assets/red_black.jpg"
+          src={redBlackImage}
           alt="Red rubber floor with black weights image by Alora Griffiths on Unsplash"
           className="img-fluid"
         />
-        <h2>Ad 1</h2>
-        <p>TEXT GOES HERE</p>
+        <h2>FF</h2>
+        <p>yeah</p>
       </div>
 
       {/* Section 2 */}
       <div className="my-4 text-center">
         <img
-          src="../assets/medball.jpg"
+          src={medballImage}
           alt="Medicine ball and weight on block image by Ryan De Hamer on Unsplash"
           className="img-fluid"
         />
@@ -29,7 +37,7 @@ function Home() {
       {/* Section 3 */}
       <div className="my-4 text-center">
         <img
-          src="../assets/ropes.jpg"
+          src={ropesImage}
           alt="Rope workout image by Meghan Holmes on Unsplash"
           className="img-fluid"
         />
@@ -40,7 +48,7 @@ function Home() {
       {/* Section 4 */}
       <div className="my-4 text-center">
         <img
-          src="../assets/barbell.jpg"
+          src={barbellImage}
           alt="Barbell on ground image by Victor Freitas on Unsplash"
           className="img-fluid"
         />
@@ -48,7 +56,14 @@ function Home() {
         <p>TEXT GOES HERE</p>
       </div>
     </Container>
+
+
   );
 }
 
+
+
 export default Home;
+
+
+
