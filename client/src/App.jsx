@@ -5,7 +5,7 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import AboutPage from "./components/AboutPage";
-import SignUp from "./components/SignUp";
+// import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import LogOut from "./components/LogOut";
 
@@ -52,7 +52,7 @@ function App() {
         <Routes>
           <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/signup" element={<SignUp />} />
+
           <Route
             path="/login"
             element={<Login onAuth={handleAuthentication} />}
