@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("./build"))
 
 // Use the centralized routes
 app.use('/api', appRoutes);
