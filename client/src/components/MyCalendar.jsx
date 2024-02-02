@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
+import "react-calendar/dist/Calendar.css"; // Ensure the default calendar styles are applied
 import Tracker from "./Tracker";
+import './MyCalendar.css'; // Import the custom CSS for styling
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function MyCalendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -17,13 +20,18 @@ function MyCalendar() {
   };
 
   return (
-    <div>
-      <Calendar onClickDay={onDateClick} />
-      <Tracker
-        show={showTracker}
-        handleClose={handleCloseTracker}
-        date={selectedDate}
+    <div className="my-calendar-container">
+      <Calendar 
+        onClickDay={onDateClick} 
+        className="react-calendar" // This class is for custom styling in MyCalendar.css
       />
+      {showTracker && (
+        <Tracker
+          show={showTracker}
+          handleClose={handleCloseTracker}
+          date={selectedDate}
+        />
+      )}
     </div>
   );
 }

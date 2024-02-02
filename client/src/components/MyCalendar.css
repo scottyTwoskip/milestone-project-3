@@ -1,0 +1,38 @@
+/* MyCalendar.css */
+.my-calendar-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-right: 450px; /* Adjust based on layout needs */
+  }
+  
+  .react-calendar {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Adjust the calendar's title bar */
+  .react-calendar__navigation {
+    background-color: #a8d5ba; ; /* Dark gray for a sleek look */
+    color: white;
+  }
+
+  /* Style the active day */
+.react-calendar__tile--active {
+    background: #a8d5ba; /* Professional light green for subtlety and sophistication */
+    color: white;
+    border-radius: 4px;
+  }
+  
+  
+  /* Hover effect on days */
+  .react-calendar__tile:hover {
+    background-color: #e9ecef; /* Light gray for a gentle hover effect */
+  }
+  
+  
+  
+  
+  
+  
+  

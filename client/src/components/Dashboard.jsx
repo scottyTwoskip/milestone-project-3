@@ -26,7 +26,7 @@ function Dashboard() {
         </Col>
 
         <Col md={9} className="mt-3">
-          <h2>My Dashboard</h2>
+          {/* <h2>My Dashboard</h2> */}
           <MyCalendar />
         </Col>
       </Row>

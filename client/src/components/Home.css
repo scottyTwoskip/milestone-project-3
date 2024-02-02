@@ -15,10 +15,12 @@ body {
 
 /* Style adjustments for ad headers */
 h2 {
-    color: #343a40; /* Blackish-grey color for ad headers */
-    margin-top: 15px; /* Adds space above the heading */
-    /* Add any additional styling as needed */
+    color: #757575; /* Grey color for ad headers */
+    margin-top: 15px; /* Keeps space above the heading */
+    /* Retain the rest of your styling as is */
 }
+
+
 
 /* Style adjustments for paragraph tags */
 p {
