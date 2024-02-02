@@ -5,7 +5,7 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import AboutPage from "./components/AboutPage";
-import SignUp from "./components/SignUp";
+import SignUp from "./components/Signup";
 import Login from "./components/Login";
 import LogOut from "./components/LogOut";
 
