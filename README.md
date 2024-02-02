@@ -8,7 +8,19 @@ Application to track your workouts free of charge! Track reps, sets, and excersi
 - J-Diaz007 (Jonathan Diaz)
 - scottyTwoskip (Scott Eansor)
 
-### Backend Dependencies
+## Guidance From
+
+- Raymond Wang (Lead Instructor)
+- Sebastian Damazo (Back up Instructor)
+- w3schools.com
+- MDN Web Docs
+
+#### Styling
+
+- Bootstrap Docs
+- ChatGPT
+
+## Backend Dependencies
 
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs): Library for hashing passwords.
 - [cors](https://www.npmjs.com/package/cors): Middleware for enabling Cross-Origin Resource Sharing (CORS) in your server.
@@ -16,7 +28,7 @@ Application to track your workouts free of charge! Track reps, sets, and excersi
 - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken): JSON Web Token (JWT) implementation for Node.js.
 - [mongoose](https://www.npmjs.com/package/mongoose): MongoDB object modeling tool designed to work in an asynchronous environment.
 
-### Frontend Dependencies
+## Frontend Dependencies
 
 - [@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom): Jest DOM custom matchers.
 - [@testing-library/react](https://www.npmjs.com/package/@testing-library/react): Simple and complete React DOM testing utilities.
@@ -30,7 +42,13 @@ Application to track your workouts free of charge! Track reps, sets, and excersi
 - [react-scripts](https://www.npmjs.com/package/react-scripts): Scripts and configuration used by Create React App.
 - [web-vitals](https://www.npmjs.com/package/web-vitals): Library for measuring web vitals.
 
-## Bugs and Unfinished Functionality
+## Bugs
+
+Logout function only works after you refresh the page.
+
+## Unfinished Functionality
+
+Sidebar has "bubbles" that are supposed to track the amount of workouts submitted for each category.
 
 ## Contributing
 
