@@ -27,7 +27,7 @@ function Tracker({ show, handleClose, date }) {
       const token = localStorage.getItem("token");
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_WEB_APP_URL}/api/workouts`,
+          `https://gains-tracker.onrender.com//api/workouts`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -73,7 +73,7 @@ function Tracker({ show, handleClose, date }) {
     try {
       // Send the POST request to the backend
       const response = await fetch(
-        `${process.env.REACT_APP_WEB_APP_URL}/api/workouts`,
+        `https://gains-tracker.onrender.com/api/workouts`,
         {
           method: "POST",
           headers: {
@@ -109,7 +109,7 @@ function Tracker({ show, handleClose, date }) {
     const token = localStorage.getItem("token"); // Retrieve token from local storage
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_WEB_APP_URL}/workouts/${workoutId}`,
+        `https://gains-tracker.onrender.com/workouts/${workoutId}`,
         {
           method: "DELETE",
           headers: {

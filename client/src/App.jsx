@@ -21,7 +21,7 @@ function App() {
     }
     async function validateCredentials() {
       const response = await fetch(
-        `${process.env.REACT_APP_WEB_APP_URL}/api/users/validate`,
+        `https://gains-tracker.onrender.com/api/users/validate`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
