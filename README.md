@@ -44,11 +44,13 @@ Application to track your workouts free of charge! Track reps, sets, and excersi
 
 ## Bugs
 
-Logout function only works after you refresh the page.
+Logout functionality only works after you refresh the page.
 
 ## Unfinished Functionality
 
 Sidebar has "bubbles" that are supposed to track the amount of workouts submitted for each category.
+Calendar should have a minimize function.
+Videos of suggested workout should be added to the bottom of the dashboard page.
 
 ## Contributing
 
