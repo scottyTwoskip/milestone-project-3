@@ -1,9 +1,8 @@
 /* MyCalendar.css */
 .my-calendar-container {
     display: flex;
-    justify-content: center;
-    padding: 20px;
-    margin-right: 450px; /* Adjust based on layout needs */
+    justify-content: flex-start; /* Keeps the calendar aligned to the left */
+    padding: 20px 20px 20px 220px; /* Top, right, bottom padding to 20px, left padding to 0 */
   }
   
   .react-calendar {
@@ -13,22 +12,31 @@
   
   /* Adjust the calendar's title bar */
   .react-calendar__navigation {
-    background-color: #a8d5ba; ; /* Dark gray for a sleek look */
+    background-color: #a8d5ba; /* Adjusted for light green */
     color: white;
   }
-
+  
   /* Style the active day */
-.react-calendar__tile--active {
-    background: #a8d5ba; /* Professional light green for subtlety and sophistication */
+  .react-calendar__tile--active {
+    background: #a8d5ba; /* Consistent light green for active days */
     color: white;
     border-radius: 4px;
   }
   
-  
   /* Hover effect on days */
   .react-calendar__tile:hover {
-    background-color: #e9ecef; /* Light gray for a gentle hover effect */
+    background-color: #e9ecef;
   }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .my-calendar-container {
+      padding: 10px 10px 10px 0; /* Reduce padding on smaller screens */
+    }
+  }
+  
+  
+  
   
   
   
