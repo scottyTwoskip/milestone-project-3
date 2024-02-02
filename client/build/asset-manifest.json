@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8b0b0d78.css",
+    "main.js": "/static/js/main.ee669f18.js",
+    "static/media/workout_gear.jpg": "/static/media/workout_gear.ee6e4d7d5790df8e961e.jpg",
+    "static/media/weights_on_floor.jpg": "/static/media/weights_on_floor.a58265d189d86a3c5497.jpg",
+    "static/media/red_black.jpg": "/static/media/red_black.210168b294b2694ad9e9.jpg",
+    "static/media/tension_cord.jpg": "/static/media/tension_cord.2bb3cc8a6c8ed33a780e.jpg",
+    "static/media/barbell.jpg": "/static/media/barbell.d512feebf9b9ce414254.jpg",
+    "static/media/lifting.jpg": "/static/media/lifting.5885d7da169dc63c8b92.jpg",
+    "static/media/medball.jpg": "/static/media/medball.b39ba58e59611140c06a.jpg",
+    "static/media/ropes.jpg": "/static/media/ropes.a43a880cce43566ef995.jpg",
+    "static/media/workoutPlan.jpeg": "/static/media/workoutPlan.02f8572bd7c63b0c86f8.jpeg",
+    "index.html": "/index.html",
+    "main.8b0b0d78.css.map": "/static/css/main.8b0b0d78.css.map",
+    "main.ee669f18.js.map": "/static/js/main.ee669f18.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b0b0d78.css",
+    "static/js/main.ee669f18.js"
+  ]
+}

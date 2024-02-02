@@ -13,7 +13,7 @@ function SignUp() {
     try {
       const response = await fetch(
         // `${process.env.WEB_APP_URL}/api/users/signup`,
-        `http://localhost:5001/api/users/signup`,
+        `${process.env.REACT_APP_WEB_APP_URL}/api/users/signup`,
         {
           method: "POST",
           headers: {

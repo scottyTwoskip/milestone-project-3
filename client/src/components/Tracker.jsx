@@ -26,11 +26,14 @@ function Tracker({ show, handleClose, date }) {
     const fetchWorkouts = async () => {
       const token = localStorage.getItem("token");
       try {
-        const response = await fetch(`http://localhost:5001/api/workouts`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_WEB_APP_URL}/api/workouts`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         console.log(response);
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -69,7 +72,7 @@ function Tracker({ show, handleClose, date }) {
 
     try {
       // Send the POST request to the backend
-      const response = await fetch("http://localhost:5001/api/workouts", {
+      const response = await fetch(`${REACT_APP_WEB_APP_URL}/api/workouts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -103,7 +106,7 @@ function Tracker({ show, handleClose, date }) {
     const token = localStorage.getItem("token"); // Retrieve token from local storage
     try {
       const response = await fetch(
-        `http://localhost:5001/workouts/${workoutId}`,
+        `${REACT_APP_WEB_APP_URL}/workouts/${workoutId}`,
         {
           method: "DELETE",
           headers: {

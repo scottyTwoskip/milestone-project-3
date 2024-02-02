@@ -12,7 +12,7 @@ function Login({ onAuth }) {
     try {
       const response = await fetch(
         // `${process.env.WEB_APP_URL}/api/users/login`
-        `http://localhost:5001/api/users/login`,
+        `${process.env.REACT_APP_WEB_APP_URL}/api/users/login`,
         {
           // Use environment variable for the URL
           method: "POST",

@@ -20,22 +20,24 @@ function App() {
       return;
     }
     async function validateCredentials() {
-      const response = await fetch(`http://localhost:5001/api/users/validate`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_WEB_APP_URL}/api/users/validate`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const data = await response.json();
       setLoggedIn(data.valid);
     }
     validateCredentials();
   }, []);
 
-  // ! Function to handle login
   const handleAuthentication = (token) => {
     localStorage.setItem("token", token);
     setLoggedIn(true);
-    console.log("is logged in", isLoggedIn)
+    console.log("is logged in", isLoggedIn);
   };
 
   const pageStyle = {
@@ -51,8 +53,14 @@ function App() {
           <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login onAuth={handleAuthentication} />} />
-          <Route path="/logout" element={<LogOut handleAuth={handleAuthentication} />} />
+          <Route
+            path="/login"
+            element={<Login onAuth={handleAuthentication} />}
+          />
+          <Route
+            path="/logout"
+            element={<LogOut handleAuth={handleAuthentication} />}
+          />
         </Routes>
       </div>
     </Router>
