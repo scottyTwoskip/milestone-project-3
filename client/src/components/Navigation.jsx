@@ -40,7 +40,7 @@ function Navigation({ handleAuth, isLoggedIn }) {
             </Nav.Link>
             {isLoggedIn ? (
               // If user is logged in, show Logout link
-              <Nav.Link as={Link} to="/">
+              <Nav.Link as={Link} to="/" onClick={handleLogout}>
                 Logout
               </Nav.Link>
             ) : (

@@ -1,14 +1,17 @@
-// Logout.jsx
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function LogOut() {
+function LogOut({ handleAuth }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Your logout logic goes here
+
     console.log('Logout button clicked');
-    // Logout API call or any other logic goes here
+    // Clears the token from the local storage
+    localStorage.removeItem('token');
+    // Updates the authentication state
+    handleAuth(false);
+    // Redirects to home page after logging out
     navigate('/');
   };
 

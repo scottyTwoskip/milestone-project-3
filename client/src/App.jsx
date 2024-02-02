@@ -15,6 +15,8 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
+      // Updates the state
+      setLoggedIn(false);
       return;
     }
     async function validateCredentials() {
@@ -49,11 +51,8 @@ function App() {
           <Route path="/" element={isLoggedIn ? <Dashboard /> : <Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route
-            path="/login"
-            element={<Login onAuth={handleAuthentication} />}
-          />
-          <Route path="/logout" element={<LogOut />} />
+          <Route path="/login" element={<Login onAuth={handleAuthentication} />} />
+          <Route path="/logout" element={<LogOut handleAuth={handleAuthentication} />} />
         </Routes>
       </div>
     </Router>
