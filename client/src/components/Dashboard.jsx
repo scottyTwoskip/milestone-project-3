@@ -6,11 +6,12 @@ import WorkoutBubbles from "./WorkoutBubbles";
 
 const backgroundStyle = {
   backgroundImage: `url(${backgroundImage})`,
-  backgroundSize: "contain",
+  backgroundSize: "cover", // Changed to 'cover' to ensure full coverage
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
   minHeight: "100vh",
 };
+
 
 function Dashboard() {
   // Default workout bubble values

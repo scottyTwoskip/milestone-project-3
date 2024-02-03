@@ -27,7 +27,7 @@ function Tracker({ show, handleClose, date }) {
       const token = localStorage.getItem("token");
       try {
         const response = await fetch(
-          `https://gains-tracker.onrender.com//api/workouts`,
+          `https://gains-tracker.onrender.com/api/workouts`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
